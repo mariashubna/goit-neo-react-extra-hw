@@ -1,8 +1,20 @@
-// import css from "./RegisterForm.module.css";
-import { Field, Form, Formik } from "formik";
+import css from "./RegistrationForm.module.css";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
+import * as Yup from "yup";
 
 export const RegistrationForm = ({ submit }) => {
+  const validateSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(2, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    email: Yup.string().email("Invalid email address").required("Required"),
+    password: Yup.string()
+      .min(6, "Password must be at least 6 characters long")
+      .required("Required"),
+  });
+
   const handleSubmit = (values, actions) => {
     submit(values);
 
@@ -15,17 +27,26 @@ export const RegistrationForm = ({ submit }) => {
 
   return (
     <Formik
-      // className={css.form}
       initialValues={{ name: "", email: "", password: "" }}
       onSubmit={handleSubmit}
+      validationSchema={validateSchema} //
     >
-      <Form>
-        <label htmlFor={nameId}>Username</label>
+      <Form className={css.form}>
+        <label className={css.label} htmlFor={nameId}>
+          Username
+        </label>
         <Field name="name" id={nameId} />
-        <label htmlFor={emailId}>Email</label>
+        <ErrorMessage className={css.error} name="name" component="span" />
+        <label className={css.label} htmlFor={emailId}>
+          Email
+        </label>
         <Field name="email" id={emailId} />
-        <label htmlFor={passwordId}>Password</label>
+        <ErrorMessage className={css.error} name="email" component="span" />
+        <label className={css.label} htmlFor={passwordId}>
+          Password
+        </label>
         <Field name="password" id={passwordId} />
+        <ErrorMessage className={css.error} name="password" component="span" />
         <button type="submit">Register</button>
       </Form>
     </Formik>
