@@ -4,6 +4,7 @@
   width: 320px;
   gap: 6px;
   font-size: 22px;
+  margin-bottom: 20px;
 }
 .search input {
   height: 20px;

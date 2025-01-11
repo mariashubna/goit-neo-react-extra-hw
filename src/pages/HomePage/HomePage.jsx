@@ -1,27 +1,14 @@
-const styles = {
-  container: {
-    minHeight: "calc(100vh - 50px)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 48,
-    textAlign: "center",
-  },
-};
+import css from "./HomePage.module.css";
+import { FcContacts } from "react-icons/fc";
 
 export default function HomePage() {
   return (
     <>
-      <p>Home</p>
-
-      <div style={styles.container}>
-        <h1 style={styles.title}>
-          Task manager welcome page{" "}
+      <div className={css.home}>
+        <h1 className={css.title}>
+          Contacts book welcome page
           <span role="img" aria-label="Greeting icon">
-            💁‍♀️
+            <FcContacts />
           </span>
         </h1>
       </div>

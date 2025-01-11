@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { addContact, fetchContacts } from "../../redux/contacts/operations";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { selectContacts } from "../../redux/contacts/selectors";
+import css from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -20,12 +21,12 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <h1>Phonebook</h1>
+    <section className={css.contacts}>
+      <h1 className={css.title}>~Your Phonebook~</h1>
       <ContactForm submit={handleAddContact} />
       {contacts.length > 0 && <SearchBox />}
       <ContactList />
-    </>
+    </section>
   );
 };
 export default ContactsPage;

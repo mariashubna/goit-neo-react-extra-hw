@@ -10,7 +10,7 @@ export default function LoginPage() {
 
   return (
     <div>
-      <p>Login</p>
+      <p>Log in to the app</p>
       <LoginForm submit={login} />
     </div>
   );

@@ -6,13 +6,17 @@ import css from "./Navigation.module.css";
 export const Navigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
+  const getActiveClass = ({ isActive }) => {
+    return isActive ? css.active : "link";
+  };
+
   return (
-    <nav>
-      <NavLink className={css.link} to="/">
+    <nav className={css.nav}>
+      <NavLink className={getActiveClass} to="/">
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/contacts">
+        <NavLink className={getActiveClass} to="/contacts">
           Contacts
         </NavLink>
       )}
