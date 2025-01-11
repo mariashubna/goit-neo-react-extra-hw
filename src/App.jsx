@@ -6,6 +6,7 @@ import { RestrictedRoute } from "./components/RestrictedRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import { refreshUser } from "./redux/auth/operations";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const RegistrationPage = lazy(() =>

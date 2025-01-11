@@ -45,7 +45,12 @@ export const RegistrationForm = ({ submit }) => {
         <label className={css.label} htmlFor={passwordId}>
           Password
         </label>
-        <Field className={css.input} name="password" id={passwordId} />
+        <Field
+          className={css.input}
+          name="password"
+          id={passwordId}
+          type="password"
+        />
         <ErrorMessage className={css.error} name="password" component="span" />
         <button className={css.btn} type="submit">
           Register
