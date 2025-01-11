@@ -8,6 +8,7 @@ const setToken = (token) => {
 
 const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = "";
+  localStorage.removeItem("token");
 };
 
 export const registerOperation = createAsyncThunk(
