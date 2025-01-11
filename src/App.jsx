@@ -49,6 +49,7 @@ function App() {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
+        <Route path="*" element={<ErrorMessage />} />
       </Routes>
     </Layout>
   );

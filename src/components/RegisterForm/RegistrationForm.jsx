@@ -29,25 +29,27 @@ export const RegistrationForm = ({ submit }) => {
     <Formik
       initialValues={{ name: "", email: "", password: "" }}
       onSubmit={handleSubmit}
-      validationSchema={validateSchema} //
+      validationSchema={validateSchema}
     >
       <Form className={css.form}>
         <label className={css.label} htmlFor={nameId}>
           Username
         </label>
-        <Field name="name" id={nameId} />
+        <Field className={css.input} name="name" id={nameId} />
         <ErrorMessage className={css.error} name="name" component="span" />
         <label className={css.label} htmlFor={emailId}>
           Email
         </label>
-        <Field name="email" id={emailId} />
+        <Field className={css.input} name="email" id={emailId} />
         <ErrorMessage className={css.error} name="email" component="span" />
         <label className={css.label} htmlFor={passwordId}>
           Password
         </label>
-        <Field name="password" id={passwordId} />
+        <Field className={css.input} name="password" id={passwordId} />
         <ErrorMessage className={css.error} name="password" component="span" />
-        <button type="submit">Register</button>
+        <button className={css.btn} type="submit">
+          Register
+        </button>
       </Form>
     </Formik>
   );

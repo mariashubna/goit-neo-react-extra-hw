@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import { logInOperation } from "../../redux/auth/operations";
+import css from "./LoginPage.module.css";
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -9,8 +10,8 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
-      <p>Log in to the app</p>
+    <div className={css.login}>
+      <p className={css.title}>Login</p>
       <LoginForm submit={login} />
     </div>
   );
