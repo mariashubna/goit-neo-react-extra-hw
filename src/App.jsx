@@ -20,7 +20,10 @@ function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(refreshUser());
+    const token = localStorage.getItem("persist:auth");
+    if (token) {
+      dispatch(refreshUser());
+    }
   }, [dispatch]);
 
   return isRefreshing ? (

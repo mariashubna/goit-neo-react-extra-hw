@@ -20,7 +20,6 @@ const slice = createSlice({
     },
     token: null,
     isLoggedIn: false,
-    error: null,
     isRefreshing: false,
   },
   extraReducers: (builder) => {
@@ -44,7 +43,6 @@ const slice = createSlice({
         };
         state.token = null;
         state.isLoggedIn = false;
-        state.error = null;
       })
       .addCase(logOutOperation.rejected, handleRejected)
       .addCase(refreshUser.pending, (state) => {
